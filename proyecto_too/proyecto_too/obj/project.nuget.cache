@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "jxjTGNFyh7OOyRG9mgHGXowmn6zsYBnzwM/Y2gsFkcl9oMnclxSpdtfgsXyp5HnukZ946XTnSIE5aN3jlkYJ6Q==",
+  "success": true,
+  "projectFilePath": "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Palacios\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
+    "C:\\Users\\Palacios\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\Palacios\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
+  ],
+  "logs": []
+}
