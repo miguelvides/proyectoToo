@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj": {}
+    "D:\\too\\proyecto_too\\proyecto_too\\proyecto_too.csproj": {}
   },
   "projects": {
-    "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj": {
+    "D:\\too\\proyecto_too\\proyecto_too\\proyecto_too.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
+        "projectUniqueName": "D:\\too\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
         "projectName": "proyecto_too",
-        "projectPath": "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
+        "projectPath": "D:\\too\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
         "packagesPath": "C:\\Users\\Palacios\\.nuget\\packages\\",
-        "outputPath": "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\obj\\",
+        "outputPath": "D:\\too\\proyecto_too\\proyecto_too\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -43,9 +43,15 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "bootstrap": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[4.6.0, )"
+              "version": "[5.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.11, )"
             }
           },
           "imports": [
