@@ -12,4 +12,13 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\imagenes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\imagenes\descarga.jpg" />
+    <None Include="wwwroot\imagenes\user.png" />
+  </ItemGroup>
+
 </Project>
