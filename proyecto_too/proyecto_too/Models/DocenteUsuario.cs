@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace proyecto_too.Models
 {
-    public partial class RolUsuario
+    public partial class DocenteUsuario
     {
+        public string Dui { get; set; }
         public int? IdUsuario { get; set; }
-        public int? RolId { get; set; }
 
+        public virtual Docente DuiNavigation { get; set; }
         public virtual Usuario IdUsuarioNavigation { get; set; }
-        public virtual Rol Rol { get; set; }
     }
 }

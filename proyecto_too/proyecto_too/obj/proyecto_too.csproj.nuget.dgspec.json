@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Rodrigo\\Documents\\GitHub\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj": {}
+    "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Rodrigo\\Documents\\GitHub\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj": {
+    "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Rodrigo\\Documents\\GitHub\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
+        "projectUniqueName": "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
         "projectName": "proyecto_too",
-        "projectPath": "C:\\Users\\Rodrigo\\Documents\\GitHub\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
-        "packagesPath": "C:\\Users\\Rodrigo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Rodrigo\\Documents\\GitHub\\proyectoToo\\proyecto_too\\proyecto_too\\obj\\",
+        "projectPath": "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\proyecto_too.csproj",
+        "packagesPath": "C:\\Users\\Palacios\\.nuget\\packages\\",
+        "outputPath": "D:\\too\\proyectoToo\\proyecto_too\\proyecto_too\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Rodrigo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Palacios\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

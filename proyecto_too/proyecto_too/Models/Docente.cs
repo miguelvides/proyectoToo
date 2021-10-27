@@ -11,7 +11,6 @@ namespace proyecto_too.Models
         {
             Reservas = new HashSet<Reserva>();
             SolicitudReservas = new HashSet<SolicitudReserva>();
-            Usuarios = new HashSet<Usuario>();
         }
 
         public string Dui { get; set; }
@@ -23,6 +22,5 @@ namespace proyecto_too.Models
 
         public virtual ICollection<Reserva> Reservas { get; set; }
         public virtual ICollection<SolicitudReserva> SolicitudReservas { get; set; }
-        public virtual ICollection<Usuario> Usuarios { get; set; }
     }
 }

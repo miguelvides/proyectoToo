@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace proyecto_too.Models
 {
-    public partial class bdtooContext : DbContext
+    public partial class dbtooContext : DbContext
     {
-        public bdtooContext()
+        public dbtooContext()
         {
         }
 
-        public bdtooContext(DbContextOptions<bdtooContext> options)
+        public dbtooContext(DbContextOptions<dbtooContext> options)
             : base(options)
         {
         }
@@ -21,6 +21,7 @@ namespace proyecto_too.Models
         public virtual DbSet<Carrera> Carreras { get; set; }
         public virtual DbSet<Catalogo> Catalogos { get; set; }
         public virtual DbSet<Docente> Docentes { get; set; }
+        public virtual DbSet<DocenteUsuario> DocenteUsuarios { get; set; }
         public virtual DbSet<Escuela> Escuelas { get; set; }
         public virtual DbSet<Galerium> Galeria { get; set; }
         public virtual DbSet<Horario> Horarios { get; set; }
@@ -29,17 +30,16 @@ namespace proyecto_too.Models
         public virtual DbSet<PermisoRole> PermisoRoles { get; set; }
         public virtual DbSet<Reserva> Reservas { get; set; }
         public virtual DbSet<Rol> Rols { get; set; }
-        public virtual DbSet<RolUsuario> RolUsuarios { get; set; }
         public virtual DbSet<SolicitudReserva> SolicitudReservas { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<UsuarioRol> UsuarioRols { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("server=DESKTOP-9DSSP5T\\SQLEXPRESS; Database=bdtoo; Trusted_Connection=True;");
-                //optionsBuilder.UseSqlServer("server=DESKTOP-9DSSP5T\\SQLEXPRESS; Database=bdtoo;User ID=sa; Password=Admin123$");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=DESKTOP-9DSSP5T\\SQLEXPRESS ;Database=dbtoo ;Trusted_Connection=True;");
             }
         }
 
@@ -194,6 +194,30 @@ namespace proyecto_too.Models
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("NOMBRE_DOCENTE");
+            });
+
+            modelBuilder.Entity<DocenteUsuario>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("DOCENTE_USUARIO");
+
+                entity.Property(e => e.Dui)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("DUI");
+
+                entity.Property(e => e.IdUsuario).HasColumnName("ID_USUARIO");
+
+                entity.HasOne(d => d.DuiNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.Dui)
+                    .HasConstraintName("FK_DOCENTE__REFERENCE_DOCENTE");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("FK_DOCENTE__REFERENCE_USUARIO");
             });
 
             modelBuilder.Entity<Escuela>(entity =>
@@ -375,27 +399,6 @@ namespace proyecto_too.Models
                     .HasColumnName("SLUG_ROL");
             });
 
-            modelBuilder.Entity<RolUsuario>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("ROL_USUARIO");
-
-                entity.Property(e => e.IdUsuario).HasColumnName("ID_USUARIO");
-
-                entity.Property(e => e.RolId).HasColumnName("ROL_ID");
-
-                entity.HasOne(d => d.IdUsuarioNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.IdUsuario)
-                    .HasConstraintName("FK_ROL_USUA_REFERENCE_USUARIO");
-
-                entity.HasOne(d => d.Rol)
-                    .WithMany()
-                    .HasForeignKey(d => d.RolId)
-                    .HasConstraintName("FK_ROL_USUA_REFERENCE_ROL");
-            });
-
             modelBuilder.Entity<SolicitudReserva>(entity =>
             {
                 entity.HasKey(e => e.IdSolucitud);
@@ -443,11 +446,6 @@ namespace proyecto_too.Models
                     .ValueGeneratedNever()
                     .HasColumnName("ID_USUARIO");
 
-                entity.Property(e => e.Dui)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("DUI");
-
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .IsUnicode(false)
@@ -461,11 +459,27 @@ namespace proyecto_too.Models
                 entity.Property(e => e.Pasword)
                     .IsUnicode(false)
                     .HasColumnName("PASWORD");
+            });
 
-                entity.HasOne(d => d.DuiNavigation)
-                    .WithMany(p => p.Usuarios)
-                    .HasForeignKey(d => d.Dui)
-                    .HasConstraintName("FK_USUARIO_REFERENCE_DOCENTE");
+            modelBuilder.Entity<UsuarioRol>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("USUARIO_ROL");
+
+                entity.Property(e => e.IdUsuario).HasColumnName("ID_USUARIO");
+
+                entity.Property(e => e.RolId).HasColumnName("ROL_ID");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany()
+                    .HasForeignKey(d => d.IdUsuario)
+                    .HasConstraintName("FK_USUARIO__REFERENCE_USUARIO");
+
+                entity.HasOne(d => d.Rol)
+                    .WithMany()
+                    .HasForeignKey(d => d.RolId)
+                    .HasConstraintName("FK_USUARIO__REFERENCE_ROL");
             });
 
             OnModelCreatingPartial(modelBuilder);

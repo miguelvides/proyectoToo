@@ -243,3 +243,4 @@ C:\Users\Rodrigo\Documents\GitHub\proyectoToo\proyecto_too\proyecto_too\obj\Debu
 C:\Users\Rodrigo\Documents\GitHub\proyectoToo\proyecto_too\proyecto_too\obj\Debug\netcoreapp3.1\proyecto_too.genruntimeconfig.cache
 C:\Users\Rodrigo\Documents\GitHub\proyectoToo\proyecto_too\proyecto_too\obj\Debug\netcoreapp3.1\proyecto_too.csproj.CopyComplete
 C:\Users\Rodrigo\Documents\GitHub\proyectoToo\proyecto_too\proyecto_too\obj\Debug\netcoreapp3.1\Razor\Views\Registro\Registro.cshtml.g.cs
+D:\too\proyectoToo\proyecto_too\proyecto_too\obj\Debug\netcoreapp3.1\Razor\Views\Registro\Registro.cshtml.g.cs
