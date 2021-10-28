@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace proyecto_too.Models
 {
-    public partial class dbtooContext : DbContext
+    public partial class bdtooContext : DbContext
     {
-        public dbtooContext()
+        public bdtooContext()
         {
         }
 
-        public dbtooContext(DbContextOptions<dbtooContext> options)
+        public bdtooContext(DbContextOptions<bdtooContext> options)
             : base(options)
         {
         }
@@ -39,7 +39,7 @@ namespace proyecto_too.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-9DSSP5T\\SQLEXPRESS ;Database=dbtoo ;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-9DSSP5T\\SQLEXPRESS;Database=bdtoo;Trusted_Connection=True;");
             }
         }
 
@@ -134,9 +134,7 @@ namespace proyecto_too.Models
 
                 entity.ToTable("CATALOGO");
 
-                entity.Property(e => e.IdCatalogo)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID_CATALOGO");
+                entity.Property(e => e.IdCatalogo).HasColumnName("ID_CATALOGO");
 
                 entity.Property(e => e.CodigoLocal)
                     .HasMaxLength(10)
@@ -242,9 +240,7 @@ namespace proyecto_too.Models
             {
                 entity.ToTable("GALERIA");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.NombreFoto)
                     .IsRequired()
@@ -257,9 +253,7 @@ namespace proyecto_too.Models
             {
                 entity.ToTable("HORARIO");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID");
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Dia)
                     .HasColumnType("datetime")
@@ -309,9 +303,7 @@ namespace proyecto_too.Models
 
                 entity.ToTable("PERMISO");
 
-                entity.Property(e => e.IdPermiso)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID_PERMISO");
+                entity.Property(e => e.IdPermiso).HasColumnName("ID_PERMISO");
 
                 entity.Property(e => e.DescripcionPermiso)
                     .HasMaxLength(50)
@@ -380,9 +372,7 @@ namespace proyecto_too.Models
             {
                 entity.ToTable("ROL");
 
-                entity.Property(e => e.RolId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ROL_ID");
+                entity.Property(e => e.RolId).HasColumnName("ROL_ID");
 
                 entity.Property(e => e.Descripcion)
                     .IsUnicode(false)
@@ -442,9 +432,7 @@ namespace proyecto_too.Models
 
                 entity.ToTable("USUARIO");
 
-                entity.Property(e => e.IdUsuario)
-                    .ValueGeneratedNever()
-                    .HasColumnName("ID_USUARIO");
+                entity.Property(e => e.IdUsuario).HasColumnName("ID_USUARIO");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
@@ -456,9 +444,7 @@ namespace proyecto_too.Models
                     .IsUnicode(false)
                     .HasColumnName("NOMBRE");
 
-                entity.Property(e => e.Pasword)
-                    .IsUnicode(false)
-                    .HasColumnName("PASWORD");
+                entity.Property(e => e.Pasword).HasColumnName("PASWORD");
             });
 
             modelBuilder.Entity<UsuarioRol>(entity =>

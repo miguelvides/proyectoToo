@@ -1,53 +1,30 @@
-﻿@{
+﻿@model Usuario2
+@{
     ViewData["Title"] = "Registro";
 
 }
-<!--
-<br />
-<h2 class="text-info">Registrarse</h2>
 
-<div class="border">
-    <form method="post">
-        <div asp-validation-summary="ModelOnly" class="text-danger">
-            <div class="container" style="padding:30px;">
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <label asp-for="Usuario.Dui">
+<form asp-controller="Registro" asp-action="Registro" method="post">
 
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
-    -->
-<!-- por si acaso -->
-<div class="container col align-self-center text-center" style="width:50%">
-    <main class="form-registro">
-        <form method="post">
-            <h1 class="h3 mb-3 fw-normal">Crear cuenta</h1>
-            <div class="form-floating" style="margin:50px">
-                <input type="email" name="txtEmail" class="form-control" id="floatingInputGrid" placeholder="">
-                <label for="floatingInputGrid">Correo Electronico</label>
-            </div>
-            <div class="row g-2" style="margin:5%">
-                <div class="col-md">
-                    <div class="form-floating">
-                        <input type="password" name="txtPassword" class="form-control" id="floatingInputGrid" placeholder="">
-                        <label for="floatingInputGrid">Contraseña</label>
-                    </div>
-                </div>
-                <div class="col-md">
-                    <div class="form-floating">
-                        <input type="password" name="txtConfirmarPassword" class="form-control" id="floatingInputGrid" placeholder="">
-                        <label for="floatingInputGrid">Confirmar contraseña</label>
-                    </div>
-                </div>
-            </div>
-            <button class="w-50 btn btn-lg btn-primary" type="submit" name="btnRegistrarse">Registrarse</button>
-        </form>
-    </main>
-</div>
+
+    <div>
+        <label asp-for="IdUsuario"></label>
+        <input asp-for="IdUsuario" placeholder="id" />
+    </div>
+    <div>
+        <label asp-for="Nombre"></label>
+        <input asp-for="Nombre" placeholder="Nombre" />
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input asp-for="Email" placeholder="Email" />
+    </div>
+    <div>
+        <label asp-for="Pasword"></label>
+        <input asp-for="Pasword" placeholder="pasword" />
+    </div>
+    <div>
+        <button type="submit">agregar</button>
+    </div>
+
+</form>

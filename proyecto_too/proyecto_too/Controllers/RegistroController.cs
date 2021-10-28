@@ -6,16 +6,38 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using proyecto_too.Models;
 
 namespace proyecto_too.Controllers
 {
     public class RegistroController : Controller
     {
-        public IActionResult Registro()
+       
+        public ViewResult Registro()
         {
+
             return View();
         }
-            
+
+
+        [HttpPost]
+        public RedirectToActionResult Registro(Usuario2 user) 
+        {
+            var db = new Models.bdtooContext();
+            Aes EAes = Aes.Create();
+            var user2 = new Usuario();
+            //escriptando la clave
+            user2.Nombre = user.Nombre;
+            user2.Email = user.Email;
+            user2.Pasword = EncryptStringToBytes_Aes(user.Pasword,EAes.Key,EAes.IV);
+            // Registra los datos en la base 
+            db.Usuarios.Add(user2);
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home"); 
+
+        }
+       
+
         static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
         {
             // Check arguments.
