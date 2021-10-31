@@ -6,85 +6,138 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
+using proyecto_too.Models;
 
 namespace proyecto_too.Controllers
 {
     public class SesionController : Controller
     {
-        // GET: SesionController
+       // GET: SesionController
         public ActionResult Sesion()
         {
-            return View();
+                     
+          return View();
         }
 
-        // GET: SesionController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: SesionController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SesionController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public RedirectToActionResult Sesion(Usuario2 user) 
         {
-            try
+            /*
+            Usuario p = new Usuario();
+            Aes caes = Aes.Create();
+            var db = new pruebaContext();
+            var contra = "jesus";
+            var ke = (from r in db.Usuarios where r.IdUsuario == 2 select r.KeY).FirstOrDefault();
+            var v = (from r in db.Usuarios where r.IdUsuario == 2 select r.Vi).FirstOrDefault();
+            var en = EncryptStringToBytes_Aes(contra, ke, v);
+            var g = (from d in db.Usuarios where d.IdUsuario == 2 select d.Pasword).FirstOrDefault();
+            var des = DecryptStringFromBytes_Aes(g, ke, v);
+            if (des == "jesus")
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");
             }
-            catch
-            {
-                return View();
+
+            */
+            
+            if (user.Nombre == null) {
+                return RedirectToAction("Error", "Modal");
             }
+            return RedirectToAction();
         }
 
-        // GET: SesionController/Edit/5
-        public ActionResult Edit(int id)
+
+
+        //-----------------------------------------------------------
+        static string DecryptStringFromBytes_Aes(byte[] cipherText, byte[] Key, byte[] IV)
         {
-            return View();
+            // Check arguments.
+            if (cipherText == null || cipherText.Length <= 0)
+                throw new ArgumentNullException("cipherText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            if (IV == null || IV.Length <= 0)
+                throw new ArgumentNullException("IV");
+
+            // Declare the string used to hold
+            // the decrypted text.
+            string plaintext = null;
+
+            // Create an Aes object
+            // with the specified key and IV.
+            using (Aes aesAlg = Aes.Create())
+            {
+                aesAlg.Key = Key;
+                aesAlg.IV = IV;
+
+                // Create a decryptor to perform the stream transform.
+                ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
+
+                // Create the streams used for decryption.
+                using (MemoryStream msDecrypt = new MemoryStream(cipherText))
+                {
+                    using (CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader srDecrypt = new StreamReader(csDecrypt))
+                        {
+
+                            // Read the decrypted bytes from the decrypting stream
+                            // and place them in a string.
+                            plaintext = srDecrypt.ReadToEnd();
+                        }
+                    }
+                }
+
+
+            }
+
+            return plaintext;
         }
 
-        // POST: SesionController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        //----------------------------------------------------------
+
+        static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)
         {
-            try
+            // Check arguments.
+            if (plainText == null || plainText.Length <= 0)
+                throw new ArgumentNullException("plainText");
+            if (Key == null || Key.Length <= 0)
+                throw new ArgumentNullException("Key");
+            if (IV == null || IV.Length <= 0)
+                throw new ArgumentNullException("IV");
+            byte[] encrypted;
+
+            // Create an Aes object
+            // with the specified key and IV.
+            using (Aes aesAlg = Aes.Create())
             {
-                return RedirectToAction(nameof(Index));
+                aesAlg.Key = Key;
+                aesAlg.IV = IV;
+
+                // Create an encryptor to perform the stream transform.
+                ICryptoTransform encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
+
+                // Create the streams used for encryption.
+                using (MemoryStream msEncrypt = new MemoryStream())
+                {
+                    using (CryptoStream csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            //Write all data to the stream.
+                            swEncrypt.Write(plainText);
+                        }
+                        encrypted = msEncrypt.ToArray();
+                    }
+                }
             }
-            catch
-            {
-                return View();
-            }
+            // Return the encrypted bytes from the memory stream.
+            return encrypted;
         }
 
-        // GET: SesionController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
-        // POST: SesionController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+
+        //----------------------------------------------------------------------------
+        //***************************************************************
     }
 
 }

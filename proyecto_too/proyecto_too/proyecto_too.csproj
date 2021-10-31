@@ -19,6 +19,7 @@
   <ItemGroup>
     <None Include="wwwroot\imagenes\descarga.jpg" />
     <None Include="wwwroot\imagenes\user.png" />
+    <None Include="wwwroot\Metodos Script\mettodos.js" />
   </ItemGroup>
 
 </Project>

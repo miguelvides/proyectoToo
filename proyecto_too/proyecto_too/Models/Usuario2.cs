@@ -14,5 +14,7 @@ namespace proyecto_too.Models
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string Pasword { get; set; }
+
+        public string Pasword2 { get; set; }
     }
 }

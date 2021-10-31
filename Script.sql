@@ -391,8 +391,10 @@ create table USUARIO (
    ID_USUARIO           int               identity (1,1)   not null,
    NOMBRE               varchar(50)          null,
    EMAIL                varchar(50)          null,
-   PASWORD              tinyint               null,
-   constraint PK_USUARIO primary key (ID_USUARIO)
+   PASWORD              varbinary(max)               null,
+   ke_y                 varbinary(max)            null,
+   VI                   varbinary(max)        null,
+     constraint PK_USUARIO primary key (ID_USUARIO)
 )
 go
 

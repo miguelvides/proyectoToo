@@ -11,5 +11,7 @@ namespace proyecto_too.Models
         public string Nombre { get; set; }
         public string Email { get; set; }
         public byte[] Pasword { get; set; }
+        public byte[] KeY { get; set; }
+        public byte[] Vi { get; set; }
     }
 }

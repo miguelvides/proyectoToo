@@ -439,12 +439,16 @@ namespace proyecto_too.Models
                     .IsUnicode(false)
                     .HasColumnName("EMAIL");
 
+                entity.Property(e => e.KeY).HasColumnName("ke_y");
+
                 entity.Property(e => e.Nombre)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("NOMBRE");
 
                 entity.Property(e => e.Pasword).HasColumnName("PASWORD");
+
+                entity.Property(e => e.Vi).HasColumnName("VI");
             });
 
             modelBuilder.Entity<UsuarioRol>(entity =>
