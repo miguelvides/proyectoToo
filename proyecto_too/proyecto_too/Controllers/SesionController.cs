@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
 using proyecto_too.Models;
+using Microsoft.JSInterop;
 
 namespace proyecto_too.Controllers
 {
@@ -22,10 +23,10 @@ namespace proyecto_too.Controllers
         [HttpPost]
         public RedirectToActionResult Sesion(Usuario2 user) 
         {
-            /*
+            
             Usuario p = new Usuario();
             Aes caes = Aes.Create();
-            var db = new pruebaContext();
+            var db = new bdtooContext();
             var contra = "jesus";
             var ke = (from r in db.Usuarios where r.IdUsuario == 2 select r.KeY).FirstOrDefault();
             var v = (from r in db.Usuarios where r.IdUsuario == 2 select r.Vi).FirstOrDefault();
@@ -37,7 +38,7 @@ namespace proyecto_too.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            */
+            
             
             if (user.Nombre == null) {
                 return RedirectToAction("Error", "Modal");

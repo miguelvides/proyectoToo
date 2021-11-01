@@ -19,26 +19,30 @@ namespace proyecto_too.Controllers
             return View();
         }
 
-/*
-        [HttpPost]
-        public RedirectToActionResult Registro(Usuario2 user)
-        {
-            var db = new Models.pruebaContext();
-            //se crea una instacia de AES
-            Aes EAes = Aes.Create();
-            Usuario user2 = new Usuario();
-            //escriptando la clave
-            user2.Nombre = user.Nombre;
-            user2.Email = user.Email;
-            user2.KeY = EAes.Key;
-            user2.Vi = EAes.IV;
-            user2.Pasword = EncryptStringToBytes_Aes(user.Pasword,EAes.Key,EAes.IV);
-            // Registra los datos en la base 
-            db.Usuarios.Add(user2);
-            db.SaveChanges();
-            return RedirectToAction("Index", "Home"); 
 
-        }*/
+        [HttpPost]
+        public ActionResult Registro(Usuario2 user)
+        {
+            /* var db = new Models.bdtooContext();
+             //se crea una instacia de AES
+             Aes EAes = Aes.Create();
+             Usuario user2 = new Usuario();
+             //escriptando la clave
+             user2.Nombre = user.Nombre;
+             user2.Email = user.Email;
+             user2.KeY = EAes.Key;
+             user2.Vi = EAes.IV;
+             user2.Pasword = EncryptStringToBytes_Aes(user.Pasword,EAes.Key,EAes.IV);
+             // Registra los datos en la base 
+             db.Usuarios.Add(user2);
+             db.SaveChanges();
+             return RedirectToAction("Index", "Home"); */
+            if (user.Nombre == null) {
+                return View(user);
+            }
+            return RedirectToAction("index", "Home");
+
+        }
        
 
         static byte[] EncryptStringToBytes_Aes(string plainText, byte[] Key, byte[] IV)

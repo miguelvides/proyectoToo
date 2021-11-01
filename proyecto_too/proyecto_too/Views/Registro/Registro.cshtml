@@ -1,4 +1,4 @@
-﻿@model Usuario2
+﻿@model proyecto_too.Models.Usuario2
 @{
     ViewData["Title"] = "Registro";
 
@@ -11,14 +11,18 @@
             <form asp-controller="Registro" asp-action="Registro" method="post">
                 <img src="@Url.Content("~/imagenes/registrologin.png")" width="100" height="80" />
                 <h1 class="h3 mb-3 fw-normal">Registro</h1>
+                <span asp-validation-for="Nombre" class="text-danger" style="text-align:left"></span>
                 <div class="form-floating" style="margin:auto auto 5%">
                     <input asp-for="Nombre" class="form-control" id="nombre" placeholder="nombre">
                     <label for="floatingInput">Nombre completo</label>
                 </div>
+                <!--label de email-->
+                <span asp-validation-for="Email" class="text-danger"></span>
                 <div class="form-floating" style="margin:auto auto 5%">
                     <input type="email" asp-for="Email" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Correo</label>
                 </div>
+
                 <div class="form-floating input-group" style="margin: auto auto 5%">
                     <input type="password" asp-for="Pasword" class="form-control" id="floatingPassword" placeholder="contraseña" aria-describedby="mostrar">
                     <label for="floatingPassword">Contraseña</label>
@@ -40,7 +44,7 @@
                         </svg>
                     </button>
                 </div>
-                
+
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Registrar</button>
 
             </form>
