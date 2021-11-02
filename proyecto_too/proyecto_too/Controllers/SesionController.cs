@@ -40,9 +40,7 @@ namespace proyecto_too.Controllers
 
             
             
-            if (user.Nombre == null) {
-                return RedirectToAction("Error", "Modal");
-            }
+          
             return RedirectToAction();
         }
 
