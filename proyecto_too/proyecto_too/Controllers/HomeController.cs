@@ -22,7 +22,7 @@ namespace proyecto_too.Controllers
         {
             return View();
         }
-
+       
         public IActionResult Privacy()
         {
             return View();

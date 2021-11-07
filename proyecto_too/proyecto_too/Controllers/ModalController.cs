@@ -12,6 +12,7 @@ namespace proyecto_too.Controllers
         {
             return View();
         }
+      
 
         public ViewResult Error() 
         {
