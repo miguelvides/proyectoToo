@@ -12,10 +12,12 @@ namespace proyecto_too.Controllers
         {
             return View();
         }
+
         public IActionResult Reserva()
         {
             return View();
         }
+
 
     }
 }
